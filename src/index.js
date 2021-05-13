@@ -124,6 +124,7 @@ module.exports = () => ({
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Scripts/bootstrap-sortable.js"></script>
     <script src="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Scripts/moment.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <style>
       body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -174,7 +175,27 @@ module.exports = () => ({
       }
     </style>
   </head>
+  <script type="text/javascript">
+    function sendEmail() {
+    Email.send({
+      Host: "smtp.gmail.com",
+      Username: "andres.bustos@grability.com",
+      Password: "@ndres0613",
+      To: 'andres0613@utp.edu.co',
+      From: "andres.bustos@grability.com",
+      Subject: "Sending Email using javascript",
+      Body: document.getElementsByTagName('table')[0].outerHTML,
+    })
+      .then(function (message) {
+      alert("mail sent successfully")
+      });
+    }
+  </script>
   <body>
+   <form method="post">
+      <input type="button" value="Send Email"
+        onclick="sendEmail()" />
+    </form>
     <div id="myModal" class="modal">
       <span class="closeModal">&times;</span>
       <img class="modal-content" id="modelImage">
